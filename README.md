@@ -1,10 +1,3 @@
-ممتاز.
-سنكتب README احترافي حقيقي — منظم، هندسي، ويعكس مستوى Framework وليس مجرد مشروع دراسي.
-
-ضع التالي في `README.md`:
-
----
-
 # SuleymanMiniNN
 
 ### A Dynamic Deep Learning Framework Built From Scratch
