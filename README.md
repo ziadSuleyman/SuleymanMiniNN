@@ -1,3 +1,4 @@
+
 توثيق مكتبتي الشاملتوثيق شامل لكتبتي SuleymanMiniNN
 
 اعتمدنا على مكتبة pytorch للفهم و مقارنتها بمكتبتنا 
@@ -993,3 +994,7 @@ Final Test Accuracy: 97.93%
 Param: 0.weight | Grad Mean Abs: 1.2e-08
 
 Generating Unified Dashboard...
+=======
+# SuleymanMiniNN
+A Minimal Deep Learning Framework Built From Scratch
+>>>>>>> 44c0b6dd9e5eee21bc114bc121043d6de8f90e65
