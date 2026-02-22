@@ -1,79 +1,236 @@
-SuleymanMiniNN
+ممتاز.
+سنكتب README احترافي حقيقي — منظم، هندسي، ويعكس مستوى Framework وليس مجرد مشروع دراسي.
 
-A Dynamic Deep Learning Framework Built From Scratch
+ضع التالي في `README.md`:
 
-SuleymanMiniNN is a fully functional deep learning engine implemented from scratch using NumPy.
+---
 
-It includes:
+# SuleymanMiniNN
 
-Dynamic Computational Graph (Define-by-Run)
+### A Dynamic Deep Learning Framework Built From Scratch
 
-Reverse-Mode Automatic Differentiation
+SuleymanMiniNN is a fully functional deep learning framework implemented from scratch using NumPy.
+It replicates the core design principles of modern dynamic frameworks such as PyTorch, with a focus on transparency, modularity, and educational depth.
 
-Modular Neural Network API
+The framework includes its own:
 
-Optimizers (SGD, Adam)
+* Tensor abstraction
+* Dynamic computational graph
+* Reverse-mode automatic differentiation engine
+* Neural network module system
+* Optimizers (SGD, Adam)
+* Batch Normalization
+* Dropout
+* Hyperparameter tuning system
+* Full training pipeline (MNIST)
 
-BatchNorm & Dropout
+---
 
-Grid Search Hyperparameter Tuning
+# Table of Contents
 
-MNIST Training Pipeline
+* Overview
+* Architecture
+* Features
+* Installation
+* Requirements
+* Project Structure
+* Usage Example
+* Training on MNIST
+* Results
+* Design Philosophy
+* Author
 
-The project is designed for educational and research purposes to understand how modern frameworks like PyTorch work internally.
+---
 
-Core Philosophy
+# Overview
 
-Unlike wrapper libraries, SuleymanMiniNN implements its own:
+SuleymanMiniNN is designed to expose the internal mechanics of deep learning systems.
+Unlike high-level APIs, this project builds:
 
-Tensor abstraction
+* Gradient tracking
+* Graph construction
+* Topological sorting
+* Backpropagation
+* Parameter updates
 
-Autograd engine
+All from scratch.
 
-Topological graph traversal
+The goal is to deeply understand how modern frameworks operate internally.
 
-Backpropagation mechanism
+---
 
-Training loop system
+# Architecture
 
-This allows full visibility into the computational graph and gradient flow.
+The framework follows a dynamic define-by-run paradigm:
 
-Example: MNIST Training
+1. Operations create graph nodes at runtime
+2. Each Tensor tracks:
 
-Final Test Accuracy: 96.82%
+   * Data
+   * Gradient
+   * Parents
+   * Operation metadata
+3. Backward pass performs:
 
-20 Epoch Training
-BatchNorm + Dropout
-Adam Optimizer
-Grid Search Tuning
+   * Reverse topological traversal
+   * Chain rule propagation
 
-Core Components
+Core components:
 
-Tensor (data + gradient + history tracking)
+* `Tensor`
+* `AutogradEngine`
+* `Module`
+* `Linear`
+* `Activation Layers`
+* `BatchNorm1d`
+* `Dropout`
+* `Optimizers`
+* `Trainer`
+* `HyperparameterTuner`
 
-AutogradEngine (topological sorting + chain rule)
+---
 
-Module system (Sequential, Linear, Activation layers)
+# Features
 
-Optimizers (SGD, Adam)
+* Dynamic computational graph
+* Reverse-mode automatic differentiation
+* Modular neural network API
+* Sequential model building
+* Batch normalization
+* Dropout regularization
+* SGD & Adam optimizers
+* Grid search hyperparameter tuning
+* MNIST training pipeline
 
-Trainer abstraction
+---
 
-Hyperparameter tuner
+# Requirements
 
-Why This Project Matters
+* Python 3.9+
+* NumPy
+* Matplotlib (for visualization)
+* scikit-learn (for dataset utilities)
 
-Understanding deep learning at this level builds:
+Install dependencies:
 
-Mathematical intuition
+```bash
+pip install -r requirements.txt
+```
 
-Systems thinking
+---
 
-Research readiness
+# Installation
 
-Applied AI engineering capability
+Clone the repository:
 
-Author
+```bash
+git clone https://github.com/ziadSuleyman/SuleymanMiniNN.git
+cd SuleymanMiniNN
+```
+
+(Optional) Create virtual environment:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Project Structure
+
+```
+SuleymanMiniNN/
+│
+├── SuleymanMiniNN/      # Core framework source code
+├── examples/            # Example training scripts
+├── tests/               # Unit tests
+├── README.md
+├── requirements.txt
+└── LICENSE
+```
+
+---
+
+# Usage Example
+
+Simple neural network:
+
+```python
+from SuleymanMiniNN.nn import Sequential, Linear, ReLU
+from SuleymanMiniNN.optim import Adam
+
+model = Sequential(
+    Linear(784, 128),
+    ReLU(),
+    Linear(128, 10)
+)
+
+optimizer = Adam(model.parameters(), lr=0.001)
+```
+
+Forward pass:
+
+```python
+output = model(x)
+loss = loss_fn(output, y)
+loss.backward()
+optimizer.step()
+```
+
+---
+
+# Training on MNIST
+
+Run:
+
+```bash
+python examples/train_mnist.py
+```
+
+Configuration includes:
+
+* 20 epochs
+* Adam optimizer
+* BatchNorm
+* Dropout
+* Grid search tuning
+
+---
+
+# Results
+
+Final Test Accuracy: **96.82%**
+
+* 20 Epochs
+* BatchNorm + Dropout
+* Adam optimizer
+* Hyperparameter tuning
+
+---
+
+# Design Philosophy
+
+This framework prioritizes:
+
+* Mathematical clarity
+* Explicit gradient flow
+* Structural transparency
+* Systems-level understanding
+
+The objective is not performance optimization, but deep architectural comprehension of modern deep learning engines.
+
+---
+
+# Author
 
 Ziad Suleyman
 Applied AI Engineer
+Deep Learning Systems Enthusiast
+
